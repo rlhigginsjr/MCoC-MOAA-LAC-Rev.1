@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Legislative Action Center — Michigan Council of Chapters, MOAA</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy: #1a2d4f;
+  --navy-mid: #243d6b;
+  --gold: #b8912a;
+  --gold-light: #f0d896;
+  --gold-pale: #fdf8ec;
+  --red: #8b1a1a;
+  --green: #1a5c3a;
+  --green-light: #e8f5ee;
+  --blue-pale: #eef3fa;
+  --gray-50: #f8f8f7;
+  --gray-100: #eeede9;
+  --gray-300: #c8c6bf;
+  --gray-500: #8a8880;
+  --gray-700: #4a4845;
+  --text: #1e1d1b;
+  --radius: 6px;
+  --radius-lg: 10px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 15px;
+  color: var(--text);
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* Back nav */
+.back-nav { background: var(--navy); width: 100%; }
+.back-nav-inner {
+  max-width: 820px; margin: 0 auto; padding: 0.6rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.back-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--gold-light); text-decoration: none;
+  font-size: 13px; font-weight: 600; transition: color 0.15s;
+}
+.back-link:hover { color: #fff; }
+.back-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+.back-nav-links { display: flex; gap: 20px; }
+.back-nav-links a {
+  color: rgba(255,255,255,0.7); text-decoration: none;
+  font-size: 12px; font-weight: 500; transition: color 0.15s;
+}
+.back-nav-links a:hover { color: #fff; }
+
+.page { max-width: 820px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* Header */
+.site-header {
+  border-bottom: 3px solid var(--navy);
+  padding-bottom: 1.25rem; margin-bottom: 1.75rem;
+  display: flex; align-items: center; gap: 16px;
+}
+.header-flag {
+  width: 48px; height: 48px; background: var(--navy);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.header-flag svg { width: 28px; height: 28px; fill: var(--gold-light); }
+.header-org { font-family: 'Merriweather', serif; font-size: 11px; font-weight: 700; color: var(--navy); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
+.header-tool { font-size: 22px; font-family: 'Merriweather', serif; font-weight: 700; color: var(--navy); margin-top: 0.25rem; }
+
+/* Tab bar */
+.tab-bar {
+  display: flex; gap: 0; margin-bottom: 1.75rem;
+  border-bottom: 2.5px solid var(--navy);
+}
+.tab-btn {
+  padding: 10px 28px; font-size: 15px; font-weight: 600;
+  font-family: 'Source Sans 3', sans-serif;
+  border: none; background: var(--gray-50); color: var(--gray-500);
+  cursor: pointer; border-radius: var(--radius) var(--radius) 0 0;
+  border: 1.5px solid var(--gray-100); border-bottom: none;
+  margin-right: 4px; transition: all 0.15s; position: relative; bottom: -2px;
+}
+.tab-btn.active {
+  background: #fff; color: var(--navy);
+  border-color: var(--navy); border-bottom: 2.5px solid #fff;
+  z-index: 1;
+}
+.tab-btn:hover:not(.active) { background: var(--blue-pale); color: var(--navy); }
+.tab-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 1px 6px; border-radius: 10px; margin-left: 6px;
+  background: var(--gold); color: #fff; vertical-align: middle;
+}
+.tab-badge.coming { background: var(--gray-300); color: var(--gray-700); }
+
+/* Tab panels */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Issue banners */
+.issue-banner {
+  background: var(--navy); color: #fff;
+  border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.75rem;
+}
+.issue-banner.federal { background: #2c1a4f; }
+.issue-banner h2 {
+  font-family: 'Merriweather', serif; font-size: 15px; font-weight: 700;
+  color: var(--gold-light); margin-bottom: 0.4rem; letter-spacing: 0.02em;
+}
+.issue-banner p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+.bill-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 0.75rem; }
+.bill-tag-pill {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+  color: var(--gold-light); font-size: 12px; font-weight: 600;
+  padding: 3px 10px; border-radius: 20px; letter-spacing: 0.03em;
+  text-decoration: none; cursor: pointer; transition: background 0.15s;
+}
+.bill-tag-pill:hover { background: rgba(255,255,255,0.2); }
+
+/* Resources */
+.resources-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.resource-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--navy);
+  text-decoration: none; border: 1.5px solid var(--navy);
+  padding: 6px 14px; border-radius: var(--radius);
+  transition: background 0.15s, color 0.15s;
+}
+.resource-link:hover { background: var(--navy); color: #fff; }
+.resource-link svg { width: 15px; height: 15px; }
+
+/* Steps */
+.steps-track { display: flex; align-items: center; margin-bottom: 1.75rem; }
+.step-dot { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--gray-500); }
+.step-dot.active { color: var(--navy); }
+.step-dot.done { color: var(--green); }
+.step-circle {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--gray-300);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700; color: var(--gray-500); flex-shrink: 0;
+}
+.step-dot.active .step-circle { border-color: var(--navy); color: var(--navy); background: var(--blue-pale); }
+.step-dot.done .step-circle { border-color: var(--green); background: var(--green-light); color: var(--green); }
+.step-line { flex: 1; height: 2px; background: var(--gray-100); margin: 0 8px; }
+
+/* Card */
+.card {
+  background: #fff; border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1.25rem;
+}
+.card-title {
+  font-family: 'Merriweather', serif; font-size: 15px; font-weight: 700;
+  color: var(--navy); margin-bottom: 1rem; padding-bottom: 0.75rem;
+  border-bottom: 1.5px solid var(--gray-100);
+}
+
+/* Form */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 5px; }
+.form-group.full { grid-column: 1 / -1; }
+label { font-size: 13px; font-weight: 600; color: var(--gray-700); letter-spacing: 0.01em; }
+input, select, textarea {
+  width: 100%; padding: 9px 12px;
+  border: 1.5px solid var(--gray-300); border-radius: var(--radius);
+  font-size: 14px; font-family: 'Source Sans 3', sans-serif;
+  color: var(--text); background: #fff; transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26,45,79,0.08);
+}
+textarea { resize: vertical; line-height: 1.65; }
+
+/* Bills grid */
+.bills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.bill-card {
+  border: 1.5px solid var(--gray-100); border-radius: var(--radius);
+  padding: 14px; cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  background: var(--gray-50); position: relative;
+}
+.bill-card:hover { border-color: var(--navy); background: var(--blue-pale); }
+.bill-card.selected { border-color: var(--navy); background: var(--blue-pale); border-width: 2px; }
+.priority-badge {
+  display: inline-block; background: var(--gold); color: #fff;
+  font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+  letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px;
+}
+.target-badge {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 20px; margin-bottom: 6px; margin-left: 4px;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.target-badge.committee { background: #fdecea; color: #7a1a1a; }
+.target-badge.district { background: var(--green-light); color: var(--green); }
+.target-badge.delegation { background: #eeedfe; color: #3c3489; }
+.federal-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; color: #3c3489; font-weight: 600;
+  text-decoration: none; margin-top: 6px;
+  padding: 2px 8px; background: #eeedfe; border-radius: 20px;
+  cursor: pointer; border: none; font-family: 'Source Sans 3', sans-serif;
+}
+.federal-link:hover { background: #d9d8fc; }
+.bill-code { font-family: 'Merriweather', serif; font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+.bill-short { font-size: 12px; font-weight: 600; color: var(--gray-700); margin-bottom: 5px; }
+.bill-desc { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+.bill-text-link { font-size: 11px; color: var(--navy); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 3px; margin-top: 6px; }
+.bill-text-link:hover { text-decoration: underline; }
+
+/* Empty state */
+.empty-state {
+  text-align: center; padding: 3rem 1.5rem;
+  border: 2px dashed var(--gray-300); border-radius: var(--radius-lg);
+  color: var(--gray-500);
+}
+.empty-state h3 { font-size: 16px; font-weight: 600; color: var(--gray-700); margin-bottom: 8px; }
+.empty-state p { font-size: 14px; line-height: 1.6; }
+
+/* Lookup status */
+.lookup-status {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; border-radius: var(--radius);
+  font-size: 13px; margin-bottom: 14px;
+}
+.lookup-status.loading { background: var(--blue-pale); color: var(--navy); }
+.lookup-status.success { background: var(--green-light); color: var(--green); }
+.lookup-status.error { background: #fdecea; color: var(--red); }
+.spinner {
+  width: 16px; height: 16px; border: 2px solid rgba(26,45,79,0.2);
+  border-top-color: var(--navy); border-radius: 50%;
+  animation: spin 0.7s linear infinite; flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Recipients */
+.recipients-header {
+  font-size: 12px; font-weight: 700; color: var(--gray-500);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.leg-send-btn {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 16px; border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius); background: var(--gray-50);
+  color: var(--text); font-size: 14px; cursor: pointer;
+  text-decoration: none; font-family: 'Source Sans 3', sans-serif;
+  transition: background 0.15s, border-color 0.15s;
+  margin-bottom: 8px; width: 100%;
+}
+.leg-send-btn:hover { background: var(--blue-pale); border-color: var(--navy); }
+.leg-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--navy); color: var(--gold-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; flex-shrink: 0;
+  font-family: 'Merriweather', serif;
+}
+.leg-avatar.federal { background: #2c1a4f; }
+.leg-avatar.district-found { background: var(--green); }
+.leg-name { font-weight: 600; font-size: 14px; color: var(--navy); }
+.leg-meta { font-size: 12px; color: var(--gray-500); margin-top: 1px; }
+.leg-arrow { margin-left: auto; color: var(--gray-300); flex-shrink: 0; }
+.opened-badge {
+  background: var(--green-light); color: var(--green);
+  font-size: 11px; font-weight: 700; padding: 2px 10px;
+  border-radius: 20px; margin-left: auto; flex-shrink: 0; letter-spacing: 0.03em;
+}
+
+/* Buttons */
+.btn-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn {
+  padding: 9px 20px; border-radius: var(--radius);
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  font-family: 'Source Sans 3', sans-serif;
+  display: inline-flex; align-items: center; gap: 7px;
+  transition: all 0.15s; border: 1.5px solid var(--gray-300);
+  background: #fff; color: var(--text);
+}
+.btn:hover { background: var(--gray-50); border-color: var(--gray-500); }
+.btn-primary { background: var(--navy); border-color: var(--navy); color: #fff; }
+.btn-primary:hover { background: var(--navy-mid); border-color: var(--navy-mid); }
+
+/* Notice */
+.notice {
+  background: var(--blue-pale); border-left: 3px solid var(--navy);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 12px 14px; font-size: 13px; color: var(--navy-mid);
+  margin-bottom: 1.25rem; line-height: 1.6;
+}
+.notice.warning { background: var(--gold-pale); border-left-color: var(--gold); color: #6b4a00; }
+
+/* Phone script */
+.phone-script {
+  background: var(--gold-pale); border: 1.5px solid var(--gold-light);
+  border-radius: var(--radius); padding: 14px 16px; margin-top: 1.25rem;
+}
+.phone-script-title { font-size: 12px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+.phone-script p { font-size: 13px; color: var(--gray-700); line-height: 1.65; }
+
+/* Manual fallback */
+.manual-fallback {
+  background: var(--gray-50); border: 1.5px solid var(--gray-100);
+  border-radius: var(--radius); padding: 14px 16px; margin-top: 10px; font-size: 13px;
+}
+.manual-fallback a { color: var(--navy); font-weight: 600; }
+
+.err { font-size: 13px; color: var(--red); margin-top: 8px; }
+.hidden { display: none; }
+.footer-note { font-size: 12px; color: var(--gray-500); margin-top: 10px; line-height: 1.6; }
+
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .bills-grid { grid-template-columns: 1fr; }
+  .steps-track .step-label { display: none; }
+  .tab-btn { padding: 8px 16px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Back nav -->
+<nav class="back-nav">
+  <div class="back-nav-inner">
+    <a class="back-link" href="https://www.moaamcoc.com/legislation.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to MCOC Legislation Page
+    </a>
+    <div class="back-nav-links">
+      <a href="https://www.moaamcoc.com">moaamcoc.com</a>
+      <a href="https://www.semimoaa.org">SE Michigan Chapter</a>
+      <a href="https://www.moaa.org">MOAA National</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="site-header">
+    <div class="header-flag">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 21V5l9-2 9 2v16H3zM12 3v18M3 9h18M3 15h18"/></svg>
+    </div>
+    <div>
+      <div class="header-org">Michigan Council of Chapters · Military Officers Association of America</div>
+      <div class="header-tool">Legislative Action Center</div>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar" role="tablist">
+    <button class="tab-btn active" role="tab" aria-selected="true" onclick="switchTab('state')">
+      🏛 State Legislation <span class="tab-badge" id="state-badge">4</span>
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" onclick="switchTab('federal')">
+      🇺🇸 Federal Legislation <span class="tab-badge coming" id="federal-badge">Coming Soon</span>
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- STATE TAB                                   -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-state">
+
+    <div class="issue-banner">
+      <h2>Current Priority: Aligning Veteran Recognition for NOAA &amp; USPHS Officers</h2>
+      <p>Michigan law does not recognize commissioned officers of the U.S. Public Health Service (USPHS) and National Oceanic and Atmospheric Administration (NOAA) as veterans — even though federal law (38 USC) does. These four House bills would correct that gap.</p>
+      <div class="bill-tags">
+        <a class="bill-tag-pill" href="https://www.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5262.pdf" target="_blank">HB 5262</a>
+        <a class="bill-tag-pill" href="https://www.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5278.pdf" target="_blank">HB 5278</a>
+        <a class="bill-tag-pill" href="https://www.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5279.pdf" target="_blank">HB 5279</a>
+        <a class="bill-tag-pill" href="https://archive.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5280.pdf" target="_blank">HB 5280 ★</a>
+      </div>
+    </div>
+
+    <div class="resources-row">
+      <a class="resource-link" href="https://www.moaamcoc.com/uploads/1/4/8/4/148483887/hb_5280_battle_card_r2.pdf" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        HB 5280 Battle Card
+      </a>
+      <a class="resource-link" href="https://www.moaamcoc.com/uploads/1/4/8/4/148483887/michigan_house_bill_5280_-_one-pager.pdf" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        HB 5280 One-Pager
+      </a>
+      <a class="resource-link" href="https://www.moaamcoc.com/legislation.html" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Full Issue Background
+      </a>
+    </div>
+
+    <!-- Step tracker -->
+    <div class="steps-track" id="state-steps">
+      <div class="step-dot active" id="state-sdot1"><div class="step-circle">1</div><span class="step-label">Your info</span></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="state-sdot2"><div class="step-circle">2</div><span class="step-label">Select bill</span></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="state-sdot3"><div class="step-circle">3</div><span class="step-label">Send email</span></div>
+    </div>
+
+    <!-- Step 1 -->
+    <div id="state-step1">
+      <div class="card">
+        <div class="card-title">Step 1 — Your information</div>
+        <div class="form-grid">
+          <div class="form-group"><label for="s-fname">First name</label><input id="s-fname" type="text" placeholder="Jane"/></div>
+          <div class="form-group"><label for="s-lname">Last name</label><input id="s-lname" type="text" placeholder="Smith"/></div>
+          <div class="form-group full"><label for="s-addr">Street address</label><input id="s-addr" type="text" placeholder="123 Main Street"/></div>
+          <div class="form-group"><label for="s-city">City</label><input id="s-city" type="text" placeholder="Lansing"/></div>
+          <div class="form-group"><label for="s-zip">ZIP code</label><input id="s-zip" type="text" placeholder="48933" maxlength="5"/></div>
+          <div class="form-group full"><label for="s-email">Your email address</label><input id="s-email" type="email" placeholder="jane.smith@email.com"/></div>
+          <div class="form-group full"><label for="s-chapter">MOAA Chapter / Unit</label><input id="s-chapter" type="text" placeholder="e.g. Lansing Chapter, MOAA"/></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="stateGoStep2()">Continue to bill selection ›</button>
+        </div>
+        <div id="s-s1err" class="err"></div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div id="state-step2" class="hidden">
+      <div class="card">
+        <div class="card-title">Step 2 — Select a bill to support</div>
+        <div class="notice">
+          <strong>Our primary target is HB 5280</strong> — it has the least opposition and does not rely on redefining "veteran." Bills marked <strong>Committee</strong> target specific committee members. Bills marked <strong>My District</strong> will contact your own state representative and senator based on your address.
+        </div>
+        <div class="bills-grid" id="state-bills-grid"></div>
+        <div class="btn-row">
+          <button class="btn" onclick="stateGoStep(1)">‹ Back</button>
+          <button class="btn btn-primary" onclick="stateGoStep3()">Compose email ›</button>
+        </div>
+        <div id="s-s2err" class="err"></div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div id="state-step3" class="hidden">
+      <div class="card">
+        <div class="card-title">Step 3 — Review and send your email</div>
+        <div class="notice">
+          Your email client will open with this message pre-filled. Each legislator gets their own button. Edit the message freely before clicking send in your email program.
+        </div>
+        <div id="state-lookup-status" class="hidden"></div>
+        <div class="form-grid" style="margin-bottom:1.25rem">
+          <div class="form-group full"><label for="s-esubj">Subject line (editable)</label><input id="s-esubj" type="text"/></div>
+          <div class="form-group full"><label for="s-ebody">Message body (editable)</label><textarea id="s-ebody" rows="14"></textarea></div>
+        </div>
+        <div class="recipients-header" id="state-rec-header">Send to each legislator</div>
+        <div id="state-leg-buttons"></div>
+        <div id="state-manual-fallback" class="hidden manual-fallback">
+          <strong>Can't find your legislators automatically?</strong> Visit <a href="https://www.legislature.mi.gov/MemberDetails" target="_blank">Michigan Legislature</a> to find your state rep and senator by address, then use the Copy button below to paste your message into an email to them directly.
+        </div>
+        <div class="btn-row">
+          <button class="btn" onclick="stateGoStep(2)">‹ Back</button>
+          <button class="btn" id="s-copybtn" onclick="stateCopyMsg()">Copy message</button>
+          <button class="btn" onclick="stateRefreshLinks()">↺ Refresh links</button>
+        </div>
+        <div class="footer-note">After editing the subject or body, click <strong>Refresh links</strong> before opening your email client.</div>
+      </div>
+      <div class="phone-script">
+        <div class="phone-script-title">📞 Prefer to call? Use this script</div>
+        <p id="state-phone-script">Complete Step 1 to generate your personalized phone script.</p>
+      </div>
+    </div>
+
+  </div><!-- end state tab -->
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FEDERAL TAB                                 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-federal">
+
+    <div class="issue-banner federal">
+      <h2>Federal Legislative Priorities</h2>
+      <p>Contact Michigan's U.S. Senators and House members on MOAA priority federal legislation. Federal bills may also be related to state legislation — look for the link on state bill cards.</p>
+    </div>
+
+    <!-- Step tracker -->
+    <div class="steps-track" id="federal-steps">
+      <div class="step-dot active" id="fed-sdot1"><div class="step-circle">1</div><span class="step-label">Your info</span></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="fed-sdot2"><div class="step-circle">2</div><span class="step-label">Select bill</span></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="fed-sdot3"><div class="step-circle">3</div><span class="step-label">Send email</span></div>
+    </div>
+
+    <!-- Step 1 Federal -->
+    <div id="fed-step1">
+      <div class="card">
+        <div class="card-title">Step 1 — Your information</div>
+        <div class="form-grid">
+          <div class="form-group"><label for="f-fname">First name</label><input id="f-fname" type="text" placeholder="Jane"/></div>
+          <div class="form-group"><label for="f-lname">Last name</label><input id="f-lname" type="text" placeholder="Smith"/></div>
+          <div class="form-group full"><label for="f-addr">Street address</label><input id="f-addr" type="text" placeholder="123 Main Street"/></div>
+          <div class="form-group"><label for="f-city">City</label><input id="f-city" type="text" placeholder="Lansing"/></div>
+          <div class="form-group"><label for="f-zip">ZIP code</label><input id="f-zip" type="text" placeholder="48933" maxlength="5"/></div>
+          <div class="form-group full"><label for="f-email">Your email address</label><input id="f-email" type="email" placeholder="jane.smith@email.com"/></div>
+          <div class="form-group full"><label for="f-chapter">MOAA Chapter / Unit</label><input id="f-chapter" type="text" placeholder="e.g. Lansing Chapter, MOAA"/></div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-primary" onclick="fedGoStep2()">Continue to bill selection ›</button>
+        </div>
+        <div id="f-s1err" class="err"></div>
+      </div>
+    </div>
+
+    <!-- Step 2 Federal -->
+    <div id="fed-step2" class="hidden">
+      <div class="card">
+        <div class="card-title">Step 2 — Select a federal bill to support</div>
+        <div id="fed-bills-grid"></div>
+        <div class="btn-row">
+          <button class="btn" onclick="fedGoStep(1)">‹ Back</button>
+          <button class="btn btn-primary" onclick="fedGoStep3()">Compose email ›</button>
+        </div>
+        <div id="f-s2err" class="err"></div>
+      </div>
+    </div>
+
+    <!-- Step 3 Federal -->
+    <div id="fed-step3" class="hidden">
+      <div class="card">
+        <div class="card-title">Step 3 — Review and send your email</div>
+        <div class="notice">
+          Your email client will open with this message pre-filled. Each legislator gets their own button.
+        </div>
+        <div id="fed-lookup-status" class="hidden"></div>
+        <div class="form-grid" style="margin-bottom:1.25rem">
+          <div class="form-group full"><label for="f-esubj">Subject line (editable)</label><input id="f-esubj" type="text"/></div>
+          <div class="form-group full"><label for="f-ebody">Message body (editable)</label><textarea id="f-ebody" rows="14"></textarea></div>
+        </div>
+        <div class="recipients-header">Send to each legislator</div>
+        <div id="fed-leg-buttons"></div>
+        <div class="btn-row">
+          <button class="btn" onclick="fedGoStep(2)">‹ Back</button>
+          <button class="btn" id="f-copybtn" onclick="fedCopyMsg()">Copy message</button>
+          <button class="btn" onclick="fedRefreshLinks()">↺ Refresh links</button>
+        </div>
+        <div class="footer-note">After editing the subject or body, click <strong>Refresh links</strong> before opening your email client.</div>
+      </div>
+      <div class="phone-script">
+        <div class="phone-script-title">📞 Prefer to call?</div>
+        <p id="fed-phone-script">Complete Step 1 to generate your personalized phone script.</p>
+      </div>
+    </div>
+
+  </div><!-- end federal tab -->
+
+</div><!-- end .page -->
+
+<script>
+// ─────────────────────────────────────────────────────────────────
+// CONFIGURATION — update bills and legislators here
+// ─────────────────────────────────────────────────────────────────
+
+const GOOGLE_API_KEY = 'YOUR_API_KEY_HERE';
+
+// TARGET MODES:
+//   'committee' — fixed list of legislators (COMMITTEE_MEMBERS used)
+//   'district'  — ZIP lookup finds member's own state rep + senator
+//   'delegation'— Michigan's US Senators + member's US House rep (federal)
+
+const STATE_BILLS = [
+  {
+    id: 1, code: 'HB 5280', priority: true,
+    target: 'committee',
+    short: 'Income Tax Act — retirement pay equity',
+    desc: 'Extends Michigan retirement tax fairness to active duty, retired officers, and surviving spouses of USPHS and NOAA Commissioned Corps. Primary advocacy target.',
+    url: 'https://archive.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5280.pdf',
+    relatedFederal: null,
+    subject: 'Support for HB 5280',
+    body: `Dear Representative [LAST_NAME],
+
+I am writing to respectfully request your support for a revised version of HB 5280, which would extend Michigan retirement tax fairness to active duty, retired officers, and surviving spouses of the United States Public Health Service (USPHS) and National Oceanic and Atmospheric Administration (NOAA) Commissioned Corps.
+
+The revision to the current version of the bill would amend section 30(1)(e)(iv) to read: "(iv) Beginning January 1, 2026, compensation, including retirement or pension benefits, received for services as a commissioned officer in the National Oceanic and Atmospheric Administration Commissioned Officer Corps or the United States Public Health Service Commissioned Corps."
+
+These individuals are members of the uniformed services of the United States and are recognized as veterans by the Department of Veterans Affairs. HB 5280 is a narrow, fiscally responsible measure that simply ensures equal treatment among federally recognized uniformed services retirees.
+
+The bill affects only a small number of Michigan residents and carries minimal fiscal impact, while correcting an inconsistency in current law. Importantly, the legislation does not create a new category of veterans or expand eligibility beyond those already recognized under federal standards.
+
+I respectfully ask that you support HB 5280 and assist in advancing the bill through the House Government Operations Committee.
+
+Thank you for your consideration and for your service to the people of Michigan.
+
+Respectfully,
+[FULL_NAME]
+[CITY], Michigan
+Member, [CHAPTER]`
+  },
+  {
+    id: 2, code: 'HB 5262', priority: false,
+    target: 'committee',
+    short: 'Uniformity of Service Dates Act',
+    desc: 'Amends Act 190 of 1965 to include commissioned officers of NOAA and USPHS as a class of veterans as defined in Title 38 USC.',
+    url: 'https://www.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5262.pdf',
+    relatedFederal: null,
+    subject: 'Support for HB 5262 — Veteran Recognition for NOAA & USPHS Officers',
+    body: `Dear Representative [LAST_NAME],
+
+I am writing to urge your support for HB 5262, which would amend Act 190 of 1965 to include commissioned officers of NOAA and the USPHS as a class of veterans, consistent with the federal definition under Title 38 of the United States Code.
+
+Under federal law, NOAA and USPHS commissioned officers are recognized as veterans by the Department of Veterans Affairs. Michigan law currently fails to extend this same recognition, creating an unjust gap in benefits and honors for individuals who have served in a uniformed capacity.
+
+HB 5262 is a straightforward alignment of Michigan law with existing federal standards. I respectfully ask for your support in advancing this bill through committee.
+
+Thank you for your service to the people of Michigan.
+
+Respectfully,
+[FULL_NAME]
+[CITY], Michigan
+Member, [CHAPTER]`
+  },
+  {
+    id: 3, code: 'HB 5278', priority: false,
+    target: 'committee',
+    short: 'State Personal Identification Card Act',
+    desc: 'Extends veteran designation on state ID cards to NOAA and USPHS commissioned officers.',
+    url: 'https://www.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5278.pdf',
+    relatedFederal: null,
+    subject: 'Support for HB 5278 — Veteran ID Recognition for NOAA & USPHS Officers',
+    body: `Dear Representative [LAST_NAME],
+
+I am writing to ask for your support of HB 5278, which would extend the veteran designation on Michigan state identification cards to commissioned officers of NOAA and the USPHS.
+
+These uniformed service members are recognized as veterans under federal law (38 USC) but are currently excluded from this recognition on Michigan state IDs. This small change would mean a great deal to the men and women who served in these federal uniformed services and now call Michigan home.
+
+I respectfully request your support in moving HB 5278 forward in the House Government Operations Committee.
+
+Respectfully,
+[FULL_NAME]
+[CITY], Michigan
+Member, [CHAPTER]`
+  },
+  {
+    id: 4, code: 'HB 5279', priority: false,
+    target: 'committee',
+    short: 'Michigan Vehicle Code',
+    desc: 'Extends veteran designation on Michigan driver\'s licenses to NOAA and USPHS commissioned officers.',
+    url: 'https://www.legislature.mi.gov/documents/2025-2026/billintroduced/House/pdf/2025-HIB-5279.pdf',
+    relatedFederal: null,
+    subject: 'Support for HB 5279 — Veteran Driver\'s License Recognition for NOAA & USPHS Officers',
+    body: `Dear Representative [LAST_NAME],
+
+I am writing to request your support for HB 5279, which would extend the veteran designation on Michigan driver's licenses to commissioned officers of NOAA and the USPHS.
+
+These federally recognized uniformed service veterans currently cannot receive the veteran designation on their Michigan driver's license — an inconsistency with federal law that this bill would correct. The change carries no meaningful fiscal impact and simply provides fair, equal recognition to all who have served.
+
+I ask that you support HB 5279 and help advance it through the House Government Operations Committee.
+
+Respectfully,
+[FULL_NAME]
+[CITY], Michigan
+Member, [CHAPTER]`
+  }
+];
+
+// Federal bills — add entries here when ready
+// Each entry follows the same structure as STATE_BILLS
+// target: 'delegation' contacts MI Senators + member's US House rep
+// target: 'committee' contacts a fixed federal committee list
+const FEDERAL_BILLS = [
+  // Example structure (uncomment and populate when ready):
+  // {
+  //   id: 1, code: 'S.1234', priority: true,
+  //   target: 'delegation',
+  //   short: 'Short title of the bill',
+  //   desc: 'Description shown on the bill card.',
+  //   url: 'https://www.congress.gov/bill/...',
+  //   relatedState: 'HB 5280',
+  //   subject: 'Please support S.1234',
+  //   body: `Dear [SALUTATION] [LAST_NAME], ...`
+  // },
+];
+
+// Committee members for state bills with target:'committee'
+// Add/remove/change as needed when committee membership changes
+const STATE_COMMITTEE = [
+  { name: 'Brian BeGole',    title: 'Chair · Republican · District 71',              salutation: 'Representative', email: 'bbeGole@house.mi.gov',           phone: '(517) 373-0853' },
+  { name: 'Mike Harris',     title: 'Majority Vice Chair · Republican · District 52', salutation: 'Representative', email: 'MikeHarris@house.mi.gov',         phone: '(517) 373-0828' },
+  { name: 'John Fitzgerald', title: 'Minority Vice Chair · Democrat · District 83',   salutation: 'Representative', email: 'jfitzgerald@house.mi.gov',         phone: '(517) 373-0835' },
+  { name: 'Curtis VanderWall', title: 'Member · Republican · District 102',           salutation: 'Representative', email: 'CurtisVanderWall@house.mi.gov',    phone: '(517) 373-1747' },
+  { name: 'Mike McFall',     title: 'Member · Democrat · District 14',                salutation: 'Representative', email: 'mmcfall@house.mi.gov',             phone: '(517) 373-0140' },
+];
+
+// Michigan US Senators — for federal delegation targeting
+const MI_SENATORS = [
+  { name: 'Gary Peters',    title: 'U.S. Senator · Michigan',  salutation: 'Senator',         email: 'senator@peters.senate.gov',  phone: '(202) 224-6221', type: 'federal' },
+  { name: 'Elissa Slotkin', title: 'U.S. Senator · Michigan',  salutation: 'Senator',         email: 'senator@slotkin.senate.gov', phone: '(202) 224-4822', type: 'federal' },
+];
+
+// ─────────────────────────────────────────────────────────────────
+// STATE TAB LOGIC
+// ─────────────────────────────────────────────────────────────────
+
+let selectedStateBill = null;
+let stateDistrictLegislators = [];
+
+function sv(id){ return document.getElementById(id).value.trim(); }
+
+function initials(name){
+  const parts = name.split(' ');
+  return (parts[0][0] + parts[parts.length-1][0]).toUpperCase();
+}
+
+function renderStateBills(){
+  const g = document.getElementById('state-bills-grid');
+  g.innerHTML = '';
+  STATE_BILLS.forEach(b => {
+    const d = document.createElement('div');
+    d.className = 'bill-card' + (selectedStateBill && selectedStateBill.id === b.id ? ' selected' : '');
+    const targetLabel = b.target === 'committee' ? 'Committee' : 'My District';
+    const targetClass = b.target === 'committee' ? 'committee' : 'district';
+    d.innerHTML =
+      (b.priority ? '<div class="priority-badge">★ Primary target</div>' : '') +
+      `<span class="target-badge ${targetClass}">${targetLabel}</span>` +
+      `<div class="bill-code">${b.code}</div>` +
+      `<div class="bill-short">${b.short}</div>` +
+      `<div class="bill-desc">${b.desc}</div>` +
+      (b.relatedFederal ? `<button class="federal-link" onclick="event.stopPropagation();jumpToFederal('${b.relatedFederal}')">↗ Related federal bill: ${b.relatedFederal}</button>` : '') +
+      `<a class="bill-text-link" href="${b.url}" target="_blank" onclick="event.stopPropagation()">View full bill text ↗</a>`;
+    d.onclick = () => { selectedStateBill = b; renderStateBills(); };
+    g.appendChild(d);
+  });
+}
+
+function stateGoStep2(){
+  const fn=sv('s-fname'), ln=sv('s-lname'), addr=sv('s-addr'), city=sv('s-city'), zip=sv('s-zip'), em=sv('s-email');
+  if(!fn||!ln||!addr||!city||!zip||!em){ document.getElementById('s-s1err').textContent='Please complete all fields before continuing.'; return; }
+  if(!/^\d{5}$/.test(zip)){ document.getElementById('s-s1err').textContent='Please enter a valid 5-digit ZIP code.'; return; }
+  document.getElementById('s-s1err').textContent = '';
+  if(!selectedStateBill) selectedStateBill = STATE_BILLS[0];
+  stateGoStep(2); renderStateBills();
+}
+
+async function stateGoStep3(){
+  if(!selectedStateBill){ document.getElementById('s-s2err').textContent='Please select a bill first.'; return; }
+  document.getElementById('s-s2err').textContent = '';
+  stateGoStep(3);
+  await buildStateComposer();
+}
+
+async function buildStateComposer(){
+  const fn=sv('s-fname'), ln=sv('s-lname'), addr=sv('s-addr'), city=sv('s-city'), zip=sv('s-zip'), em=sv('s-email');
+  const ch = sv('s-chapter') || 'my MOAA chapter';
+
+  // Set subject and body
+  const firstLeg = selectedStateBill.target === 'committee' ? STATE_COMMITTEE[0] : { name: 'Representative', salutation: 'Representative' };
+  const lastName = firstLeg.name.split(' ').pop();
+
+  document.getElementById('s-esubj').value = selectedStateBill.subject;
+  document.getElementById('s-ebody').value = fillMerge(selectedStateBill.body, {
+    LAST_NAME: lastName, FULL_NAME: fn+' '+ln, CITY: city,
+    ZIP: zip, EMAIL: em, ADDRESS: addr, CHAPTER: ch, SALUTATION: firstLeg.salutation
+  });
+
+  // Phone script
+  document.getElementById('state-phone-script').textContent =
+    `"Hello, my name is ${fn} ${ln}. I'm a constituent of Representative [Name] and a member of the ${ch}, Military Officers Association of America. I'm calling to ask for your support in moving ${selectedStateBill.code} forward${selectedStateBill.target==='committee'?' in committee':''}. It's a common-sense fix to ensure equal treatment for all uniformed service veterans."`;
+
+  // Determine legislators
+  if(selectedStateBill.target === 'committee'){
+    document.getElementById('state-rec-header').textContent = 'House Committee on Government Operations — send to each member';
+    document.getElementById('state-lookup-status').className = 'hidden';
+    document.getElementById('state-manual-fallback').classList.add('hidden');
+    stateDistrictLegislators = STATE_COMMITTEE;
+    renderStateButtons();
+  } else {
+    // ZIP/address lookup
+    document.getElementById('state-rec-header').textContent = 'Your Michigan legislators';
+    await lookupStateDistrict(addr, city, zip);
+  }
+}
+
+async function lookupStateDistrict(addr, city, zip){
+  const statusEl = document.getElementById('state-lookup-status');
+  statusEl.className = 'lookup-status loading';
+  statusEl.innerHTML = '<div class="spinner"></div> Looking up your state legislators by address…';
+  document.getElementById('state-leg-buttons').innerHTML = '';
+  document.getElementById('state-manual-fallback').classList.add('hidden');
+
+  const address = encodeURIComponent(`${addr}, ${city}, MI ${zip}`);
+  const url = `https://www.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=administrativeArea1&roles=legislatorLowerBody&roles=legislatorUpperBody&key=${GOOGLE_API_KEY}`;
+
+  try {
+    const resp = await fetch(url);
+    const data = await resp.json();
+
+    if(data.error || !data.officials){
+      throw new Error(data.error?.message || 'No results');
+    }
+
+    // Build legislator list from API response
+    const legislators = [];
+    const offices = data.offices || [];
+    offices.forEach(office => {
+      const chamber = office.roles?.includes('legislatorLowerBody') ? 'State Representative' : 'State Senator';
+      (office.officialIndices || []).forEach(idx => {
+        const official = data.officials[idx];
+        if(!official) return;
+        const email = official.emails?.[0] || '';
+        const phone = official.phones?.[0] || '';
+        legislators.push({
+          name: official.name,
+          title: `${chamber} · Michigan`,
+          salutation: chamber === 'State Representative' ? 'Representative' : 'Senator',
+          email, phone, type: 'district'
+        });
+      });
+    });
+
+    if(legislators.length === 0) throw new Error('No legislators found for this address');
+
+    stateDistrictLegislators = legislators;
+    statusEl.className = 'lookup-status success';
+    statusEl.innerHTML = `✓ Found ${legislators.length} Michigan legislators for your address`;
+    renderStateButtons();
+
+  } catch(err){
+    statusEl.className = 'lookup-status error';
+    statusEl.innerHTML = `⚠ Could not automatically find your legislators. Use the manual lookup link below or try a different address.`;
+    stateDistrictLegislators = [];
+    document.getElementById('state-leg-buttons').innerHTML = '';
+    document.getElementById('state-manual-fallback').classList.remove('hidden');
+  }
+}
+
+function renderStateButtons(){
+  const fn=sv('s-fname'), ln=sv('s-lname'), addr=sv('s-addr'), city=sv('s-city'), zip=sv('s-zip'), em=sv('s-email');
+  const ch = sv('s-chapter') || 'my MOAA chapter';
+  const subj = document.getElementById('s-esubj').value;
+  const bodyTpl = document.getElementById('s-ebody').value;
+  const container = document.getElementById('state-leg-buttons');
+  container.innerHTML = '';
+
+  stateDistrictLegislators.forEach(leg => {
+    const lastName = leg.name.split(' ').pop();
+    const body = fillMerge(bodyTpl, {
+      LAST_NAME: lastName, FULL_NAME: fn+' '+ln, CITY: city,
+      ZIP: zip, EMAIL: em, ADDRESS: addr, CHAPTER: ch, SALUTATION: leg.salutation
+    });
+    renderLegButton(container, leg, subj, body, leg.type === 'district' ? 'district-found' : '');
+  });
+}
+
+function stateRefreshLinks(){ renderStateButtons(); }
+
+function stateCopyMsg(){
+  navigator.clipboard.writeText('Subject: '+document.getElementById('s-esubj').value+'\n\n'+document.getElementById('s-ebody').value);
+  const btn = document.getElementById('s-copybtn');
+  btn.textContent = 'Copied ✓';
+  setTimeout(()=>{ btn.textContent = 'Copy message'; }, 2000);
+}
+
+function stateGoStep(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('state-step'+i).classList.toggle('hidden', i!==n);
+    const dot = document.getElementById('state-sdot'+i);
+    dot.classList.remove('active','done');
+    if(i < n) dot.classList.add('done');
+    else if(i === n) dot.classList.add('active');
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ─────────────────────────────────────────────────────────────────
+// FEDERAL TAB LOGIC
+// ─────────────────────────────────────────────────────────────────
+
+let selectedFedBill = null;
+
+function fv(id){ return document.getElementById(id).value.trim(); }
+
+function renderFedBills(){
+  const g = document.getElementById('fed-bills-grid');
+  g.innerHTML = '';
+
+  if(FEDERAL_BILLS.length === 0){
+    g.innerHTML = `<div class="empty-state">
+      <h3>Federal bills coming soon</h3>
+      <p>Federal priority legislation will appear here when added. Check back soon, or visit <a href="https://www.moaa.org/content/legislative-action/legislative-action/" target="_blank" style="color:var(--navy);font-weight:600">MOAA National</a> for current federal advocacy priorities.</p>
+    </div>`;
+    return;
+  }
+
+  const grid = document.createElement('div');
+  grid.className = 'bills-grid';
+  FEDERAL_BILLS.forEach(b => {
+    const d = document.createElement('div');
+    d.className = 'bill-card' + (selectedFedBill && selectedFedBill.id === b.id ? ' selected' : '');
+    const targetLabel = b.target === 'delegation' ? 'Full Delegation' : 'Committee';
+    const targetClass = b.target === 'delegation' ? 'delegation' : 'committee';
+    d.innerHTML =
+      (b.priority ? '<div class="priority-badge">★ Priority</div>' : '') +
+      `<span class="target-badge ${targetClass}">${targetLabel}</span>` +
+      `<div class="bill-code">${b.code}</div>` +
+      `<div class="bill-short">${b.short}</div>` +
+      `<div class="bill-desc">${b.desc}</div>` +
+      (b.relatedState ? `<span style="font-size:11px;color:var(--green);font-weight:600;margin-top:6px;display:block">↔ Related state bill: ${b.relatedState}</span>` : '') +
+      `<a class="bill-text-link" href="${b.url}" target="_blank" onclick="event.stopPropagation()">View full bill text ↗</a>`;
+    d.onclick = () => { selectedFedBill = b; renderFedBills(); };
+    grid.appendChild(d);
+  });
+  g.appendChild(grid);
+}
+
+function fedGoStep2(){
+  const fn=fv('f-fname'), ln=fv('f-lname'), addr=fv('f-addr'), city=fv('f-city'), zip=fv('f-zip'), em=fv('f-email');
+  if(!fn||!ln||!addr||!city||!zip||!em){ document.getElementById('f-s1err').textContent='Please complete all fields.'; return; }
+  if(!/^\d{5}$/.test(zip)){ document.getElementById('f-s1err').textContent='Please enter a valid 5-digit ZIP code.'; return; }
+  document.getElementById('f-s1err').textContent = '';
+  fedGoStep(2); renderFedBills();
+}
+
+async function fedGoStep3(){
+  if(FEDERAL_BILLS.length === 0){ document.getElementById('f-s2err').textContent='No federal bills are available yet.'; return; }
+  if(!selectedFedBill){ document.getElementById('f-s2err').textContent='Please select a bill first.'; return; }
+  document.getElementById('f-s2err').textContent = '';
+  fedGoStep(3);
+  await buildFedComposer();
+}
+
+async function buildFedComposer(){
+  const fn=fv('f-fname'), ln=fv('f-lname'), addr=fv('f-addr'), city=fv('f-city'), zip=fv('f-zip'), em=fv('f-email');
+  const ch = fv('f-chapter') || 'my MOAA chapter';
+
+  document.getElementById('f-esubj').value = selectedFedBill.subject;
+  document.getElementById('f-ebody').value = fillMerge(selectedFedBill.body, {
+    LAST_NAME: MI_SENATORS[0].name.split(' ').pop(),
+    FULL_NAME: fn+' '+ln, CITY: city, ZIP: zip,
+    EMAIL: em, ADDRESS: addr, CHAPTER: ch, SALUTATION: 'Senator'
+  });
+
+  document.getElementById('fed-phone-script').textContent =
+    `"Hello, my name is ${fn} ${ln}. I'm a constituent from ${city}, Michigan and a member of the ${ch}, Military Officers Association of America. I'm calling to urge support for ${selectedFedBill.code}. ${selectedFedBill.short}. I ask that the Senator support this important legislation for our veterans."`;
+
+  if(selectedFedBill.target === 'delegation'){
+    document.getElementById('fed-lookup-status').className = 'lookup-status loading';
+    document.getElementById('fed-lookup-status').innerHTML = '<div class="spinner"></div> Looking up your U.S. House representative…';
+    await lookupFedRep(addr, city, zip);
+  } else {
+    document.getElementById('fed-lookup-status').className = 'hidden';
+    renderFedButtons(selectedFedBill.committee || []);
+  }
+}
+
+async function lookupFedRep(addr, city, zip){
+  const statusEl = document.getElementById('fed-lookup-status');
+  const address = encodeURIComponent(`${addr}, ${city}, MI ${zip}`);
+  const url = `https://www.googleapis.com/civicinfo/v2/representatives?address=${address}&levels=country&roles=legislatorLowerBody&key=${GOOGLE_API_KEY}`;
+
+  try {
+    const resp = await fetch(url);
+    const data = await resp.json();
+    if(data.error || !data.officials) throw new Error('No results');
+
+    const houseReps = [];
+    (data.offices||[]).forEach(office => {
+      if(office.roles?.includes('legislatorLowerBody')){
+        (office.officialIndices||[]).forEach(idx => {
+          const official = data.officials[idx];
+          if(!official) return;
+          houseReps.push({
+            name: official.name,
+            title: `U.S. Representative · Michigan`,
+            salutation: 'Representative',
+            email: official.emails?.[0] || '',
+            phone: official.phones?.[0] || '',
+            type: 'federal'
+          });
+        });
+      }
+    });
+
+    statusEl.className = 'lookup-status success';
+    statusEl.innerHTML = `✓ Found your U.S. House representative`;
+    renderFedButtons([...MI_SENATORS, ...houseReps]);
+
+  } catch(err){
+    statusEl.className = 'lookup-status error';
+    statusEl.innerHTML = `⚠ Could not find your House representative automatically. Senators are still included below.`;
+    renderFedButtons([...MI_SENATORS]);
+  }
+}
+
+function renderFedButtons(legislators){
+  const fn=fv('f-fname'), ln=fv('f-lname'), addr=fv('f-addr'), city=fv('f-city'), zip=fv('f-zip'), em=fv('f-email');
+  const ch = fv('f-chapter') || 'my MOAA chapter';
+  const subj = document.getElementById('f-esubj').value;
+  const bodyTpl = document.getElementById('f-ebody').value;
+  const container = document.getElementById('fed-leg-buttons');
+  container.innerHTML = '';
+
+  legislators.forEach(leg => {
+    const lastName = leg.name.split(' ').pop();
+    const body = fillMerge(bodyTpl, {
+      LAST_NAME: lastName, FULL_NAME: fn+' '+ln, CITY: city,
+      ZIP: zip, EMAIL: em, ADDRESS: addr, CHAPTER: ch, SALUTATION: leg.salutation
+    });
+    renderLegButton(container, leg, subj, body, 'federal');
+  });
+}
+
+function fedRefreshLinks(){
+  if(selectedFedBill?.target === 'delegation') renderFedButtons([...MI_SENATORS]);
+  else if(selectedFedBill?.committee) renderFedButtons(selectedFedBill.committee);
+}
+
+function fedCopyMsg(){
+  navigator.clipboard.writeText('Subject: '+document.getElementById('f-esubj').value+'\n\n'+document.getElementById('f-ebody').value);
+  const btn = document.getElementById('f-copybtn');
+  btn.textContent = 'Copied ✓';
+  setTimeout(()=>{ btn.textContent = 'Copy message'; }, 2000);
+}
+
+function fedGoStep(n){
+  [1,2,3].forEach(i=>{
+    document.getElementById('fed-step'+i).classList.toggle('hidden', i!==n);
+    const dot = document.getElementById('fed-sdot'+i);
+    dot.classList.remove('active','done');
+    if(i < n) dot.classList.add('done');
+    else if(i === n) dot.classList.add('active');
+  });
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ─────────────────────────────────────────────────────────────────
+// SHARED UTILITIES
+// ─────────────────────────────────────────────────────────────────
+
+function fillMerge(template, vals){
+  return template
+    .replace(/\[FULL_NAME\]/g, vals.FULL_NAME||'')
+    .replace(/\[LAST_NAME\]/g, vals.LAST_NAME||'')
+    .replace(/\[CITY\]/g, vals.CITY||'')
+    .replace(/\[ZIP\]/g, vals.ZIP||'')
+    .replace(/\[EMAIL\]/g, vals.EMAIL||'')
+    .replace(/\[ADDRESS\]/g, vals.ADDRESS||'')
+    .replace(/\[CHAPTER\]/g, vals.CHAPTER||'')
+    .replace(/\[SALUTATION\]/g, vals.SALUTATION||'');
+}
+
+function renderLegButton(container, leg, subj, body, avatarClass){
+  const mailto = leg.email
+    ? `mailto:${encodeURIComponent(leg.email)}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`
+    : '#';
+  const a = document.createElement('a');
+  a.className = 'leg-send-btn';
+  a.href = mailto;
+  a.innerHTML = `
+    <div class="leg-avatar ${avatarClass||''}">${initials(leg.name)}</div>
+    <div style="flex:1;min-width:0">
+      <div class="leg-name">${leg.salutation ? leg.salutation+' ' : ''}${leg.name}</div>
+      <div class="leg-meta">${leg.title}${leg.phone?' · '+leg.phone:''}${leg.email?' · '+leg.email:' · Contact form — see their website'}</div>
+    </div>
+    <svg class="leg-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+  if(!leg.email){
+    a.onclick = e => { e.preventDefault(); alert('No email address on file for this legislator. Visit their official website to use their contact form, or use the Copy button to copy your message.'); };
+  } else {
+    a.onclick = () => {
+      setTimeout(()=>{
+        if(!a.querySelector('.opened-badge'))
+          a.querySelector('.leg-arrow').insertAdjacentHTML('beforebegin','<span class="opened-badge">Opened ✓</span>');
+      }, 400);
+    };
+  }
+  container.appendChild(a);
+}
+
+function switchTab(tab){
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function jumpToFederal(billCode){
+  switchTab('federal');
+  // Pre-select the related federal bill if it exists
+  const bill = FEDERAL_BILLS.find(b => b.code === billCode);
+  if(bill){ selectedFedBill = bill; renderFedBills(); }
+}
+
+// Update tab badges
+function updateBadges(){
+  const sc = STATE_BILLS.length;
+  const fc = FEDERAL_BILLS.length;
+  document.getElementById('state-badge').textContent = sc;
+  const fb = document.getElementById('federal-badge');
+  if(fc > 0){ fb.textContent = fc; fb.className = 'tab-badge'; }
+  else { fb.textContent = 'Coming Soon'; fb.className = 'tab-badge coming'; }
+}
+
+// Init
+renderStateBills();
+renderFedBills();
+updateBadges();
+</script>
+</body>
+</html>

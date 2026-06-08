@@ -2,7 +2,7 @@
 
 A web-based advocacy tool that makes it simple for MOAA members to contact their elected officials on priority state and federal legislation — directly from their own email client, with no backend infrastructure, no subscriptions, and no technical expertise required by members.
 
-**Live demo:** [rlhigginsjr.github.io/LAC](https://rlhigginsjr.github.io/LAC/)
+**Live demo:** [https://rlhigginsjr.github.io/LAC/](https://github.com/rlhigginsjr/MCoC-MOAA-LAC-Rev.1.git)
 
 Developed by the **Michigan Council of Chapters, MOAA (MCOC)** and offered freely to all state MOAA Councils.
 
